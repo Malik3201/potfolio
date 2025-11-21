@@ -29,13 +29,18 @@ const Hero = () => {
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
             <button
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+              }
               className="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-sky-400"
             >
               {profile.heroCTAPrimary}
             </button>
             <a
-              href="#"
+              href={profile.resume}
+              download
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white/40 hover:bg-white/5"
             >
               {profile.heroCTASecondary}
@@ -54,14 +59,25 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="reveal relative flex h-72 w-72 items-center justify-center rounded-full border border-white/15 bg-slate-900/60 p-6 backdrop-blur-xl md:h-80 md:w-80" data-animate>
-          <div className="absolute inset-4 rounded-full border border-dashed border-white/15" />
-          <div className="flex h-full w-full flex-col items-center justify-center rounded-full border border-white/20 bg-slate-900/70 text-center text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">
-            <span className="text-xs tracking-[0.6em] text-sky-200/70">Your</span>
-            <span className="text-2xl text-white">Photo</span>
-            <span className="text-xs tracking-[0.6em] text-sky-200/70">Here</span>
-          </div>
-          <div className="pointer-events-none absolute -inset-3 rounded-full border border-white/10" />
+        <div
+  className="reveal relative h-[320px] w-[300px] max-w-sm overflow-hidden rounded-3xl border border-white/15 bg-slate-900/60 shadow-2xl md:h-[400px] md:max-w-md"
+  data-animate
+>
+  {profile.heroImage ? (
+    <img
+      src={profile.heroImage}
+      alt={`${profile.name} portrait`}
+      className="h-full w-full object-cover object-top"
+      loading="lazy"
+    />
+          ) : (
+            <div className="flex h-full flex-col items-center justify-center text-center text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">
+              <span className="text-xs tracking-[0.6em] text-sky-200/70">Your</span>
+              <span className="text-2xl text-white">Photo</span>
+              <span className="text-xs tracking-[0.6em] text-sky-200/70">Here</span>
+            </div>
+          )}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
         </div>
       </div>
     </section>

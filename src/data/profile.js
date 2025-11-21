@@ -10,6 +10,8 @@ export const profile = {
     "Frontend Developer (React.js, Tailwind CSS) with basic MERN stack skills, focused on building user-friendly and technically solid interfaces.",
   heroCTAPrimary: "View My Projects",
   heroCTASecondary: "Download CV",
+  heroImage: "/WhatsApp_Image_2025-11-21_at_7.46.11_PM-removebg-preview.png",
+  resume: "/ABDULREHMAN%20MALIK%20-%20Resume.pdf",
 };
 
 export const skills = {
